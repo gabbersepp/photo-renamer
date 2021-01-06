@@ -2,9 +2,9 @@ const fs = require("fs");
 
 const logToConsole = process.env.CONSOLELOG;
 
-function log(type, msg) {
+function log(type, msg, path) {
     msg = `${type} -- ${msg}\r\n`;
-    fs.appendFileSync("./log.txt", msg);
+    fs.appendFileSync(path || "./log.txt", msg);
     if (logToConsole) {
         console.log(msg);
     }
@@ -12,5 +12,6 @@ function log(type, msg) {
 
 module.exports = {
     info: msg => log("info", msg),
-    error: msg => log("error", msg)
+    error: msg => log("error", msg),
+    logTo: (type, msg, path) => log(type, msg, path)
 }
