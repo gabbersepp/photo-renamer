@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "startLog": "cross-env CONSOLELOG=true npm start"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "date-and-time": "^0.14.2",
     "exif": "^0.6.0"
   }
